@@ -1,5 +1,5 @@
 test:
-  adapter: mysql8
+  adapter: mysql
   encoding: utf8
   pool: 5
   database: template_test
