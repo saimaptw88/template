@@ -22,17 +22,16 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
-# Indexes
-#
-#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
-#  index_users_on_email                 (email) UNIQUE
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_users_on_uid_and_provider      (uid,provider) UNIQUE
-#
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
+
+  validates :users, :email, uniqueness: true
+  validates :users, :uid, uniqueness: true
+  validates :users, :provider, uniqueness: true
+  validates :users, :reset_password_token, uniqueness: true
+  validates :users, :confirmation_token, uniqueness: true
 end
