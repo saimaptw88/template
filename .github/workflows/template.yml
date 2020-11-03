@@ -29,8 +29,8 @@ jobs:
           bundle exec rails db:schema:load
         env:
           RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          MYSQL_USER: mysql
+          MYSQL_PASSWORD: mysql
       - name: Rubocop
         run: bundle exec rubocop --parallel
       - name: RSpec

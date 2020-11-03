@@ -1,7 +1,5 @@
 test:
   adapter: mysql2
-  charset: utf8mb4
-  collation: utf8mb4_bin
   encoding: utf8mb4
   database: template_test
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
